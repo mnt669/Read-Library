@@ -36,7 +36,7 @@ const Searchform = ({ searchText }) => {
       >
         <input
           type="text"
-          placeholder="Chetan Bhagat, Vikram Seth ..."
+          placeholder="search to READ"
           onChange={onChangevalue}
         />
         <button

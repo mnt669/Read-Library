@@ -5,18 +5,17 @@ const Footer = () => {
     <div>
       <footer>
         <h4>
-          &#60;&#47;&#62; with ❤️ & ☕ by{" "}
+          Developed by Mnt669{" "}
           <a
+            href="https://github.com/mnt669"  
+            target="_blank"
+            rel="noreferrer"
             style={{
               textDecoration: "underline",
               color: "white",
             }}
-            href="https://jatiinyadav.github.io"
-            target="_blank"
-            rel="noreferrer"
           >
-            Jatin Yadav
-          </a>
+Find ME          </a>
         </h4>
       </footer>
     </div>

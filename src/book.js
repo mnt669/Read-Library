@@ -18,117 +18,48 @@ const Book = ({ id, volumeInfo }) => {
   };
   let { title, authors, publisher, previewLink, imageLinks } = volumeInfo;
 
-  //setting up default values for volume info data
+  // Setting up default values for volume info data
   title = title || "Title is not available";
   authors = authors || "Author(s) name not available";
   publisher = publisher || "Publisher company not available";
   previewLink = previewLink || "https://books.google.co.in/";
 
   return (
-    <section key={id} className="loading-card">
-      <div>
-        <div>
-          <motion.img
-            src={imageLinks ? imageLinks.thumbnail : defaultBook}
-            width="100px"
-            alt="Book-cover"
-            variants={imageVariants}
-            whileHover="hover"
-          />
-        </div>
-        <div>
-          {title && (
-            <div>
-              <h3 className="inline">{title}</h3>
-            </div>
-          )}
-        </div>
-
-        <div>
+    <section key={id} className="book-card">
+      <div className="book-card-container">
+        <motion.img
+          src={imageLinks ? imageLinks.thumbnail : defaultBook}
+          width="100px"
+          alt="Book-cover"
+          variants={imageVariants}
+          whileHover="hover"
+          className="book-cover-img"
+        />
+        
+        <div className="book-info">
+          {title && <h3 className="book-title">{title}</h3>}
+          
           {authors && (
-            <h4 style={{ paddingBottom: "1rem", color: "black" }}>
-              {" "}
-              Author:{" "}
-              <span
-                style={{
-                  fontWeight: "bold",
-                  color: "#3B3B3B",
-                }}
-              >
-                {" "}
-                {authors}{" "}
-              </span>
+            <h4 className="book-author">
+              Author: <span className="author-name">{authors}</span>
             </h4>
           )}
-        </div>
 
-        <div>
           {publisher && (
-            <h5 style={{ paddingBottom: "1rem", color: "black" }}>
-              {" "}
-              Published by:{" "}
-              <span
-                style={{
-                  fontWeight: "bold",
-                  color: "#3B3B3B",
-                }}
-              >
-                {" "}
-                {publisher}{" "}
-              </span>
+            <h5 className="book-publisher">
+              Published by: <span className="publisher-name">{publisher}</span>
             </h5>
           )}
-        </div>
 
-        <div>
           {previewLink && (
-            <h5
-              style={{
-                fontWeight: "bold",
-                color: "black",
-                paddingBottom: "1rem",
-              }}
-            >
-              Read more :{" "}
-              <a href={previewLink} target="_blank" rel="noreferrer">
-                {" "}
-                Google Books <BiLinkExternal></BiLinkExternal>{" "}
+            <h5 className="book-preview-link">
+              Read more: 
+              <a href={previewLink} target="_blank" rel="noreferrer" className="preview-link">
+                Google Books <BiLinkExternal />
               </a>
             </h5>
           )}
         </div>
-
-        {/* <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingTop: "1rem",
-              }}
-            > {language && }
-              <p>
-                {" "}
-                <span style={{ fontWeight: "bold", color: "black" }}>
-                  {" "}
-                  Language :{" "}
-                </span>{" "}
-                {language}{" "}
-              </p>
-              <p>
-                {" "}
-                <span
-                  style={{
-                    fontWeight: "bold",
-                    color: "black",
-                    marginLeft: "1rem",
-                  }}
-                >
-                  {" "}
-                  Average Rating :{" "}
-                </span>{" "}
-                {averageRating}
-              </p>
-            </div> */}
       </div>
     </section>
   );
